@@ -1,0 +1,21 @@
+Chain INPUT (policy DROP)
+
+Target	Prot	Opt	Source	Destination                              
+ACCEPT	all	--	anywhere	anywhere
+ACCEPT	all	--	anywhere	anywhere
+ACCEPT	tcp	--	anywhere	anywhere
+ACCEPT	tcp	--	anywhere	anywhere
+ACCEPT	tcp	--	anywhere	anywhere
+
+state RELATED,ESTABLISHED
+tcp dpt:ssh
+tcp dpt:http
+tcp dpt:https
+
+Chain FORWARD (policy DROP)
+
+Target	Prot	Opt	Source	Destination
+
+Chain OUTPUT (policy ACCEPT)
+
+Target	Prot	Opt	Source	Destination
